@@ -105,26 +105,26 @@
     const naranja = document.getElementById('naranja')
     const verde = document.getElementById('verde')
     const btnEmpezar = document.getElementById('btnEmpezar')
-    const ULTIMO_NIVEL = 20
+    const ULTIMO_NIVEL = 5
 
     class Juego {
         constructor() {
-        this.inicializar()
-        this.generarSecuencia()
-        setTimeout(this.siguienteNivel,2000)
+          this.inicializar()
+          this.generarSecuencia()
+          setTimeout(this.siguienteNivel,1000)
         }
 
         inicializar() {
-        this.elegirColor = this.elegirColor.bind(this)
-        this.siguienteNivel = this.siguienteNivel.bind(this)
-        this.togleBtnEmpezar()
-        this.nivel = 1
-        this.colores = {
-          rojo,
-          azul,
-          naranja,
-          verde
-        }
+          this.elegirColor = this.elegirColor.bind(this)
+          this.siguienteNivel = this.siguienteNivel.bind(this)
+          this.togleBtnEmpezar()
+          this.nivel = 1
+          this.colores = {
+            rojo,
+            azul,
+            naranja,
+            verde
+          }
         }
 
         togleBtnEmpezar() {
@@ -244,7 +244,10 @@
             icon: "error",
             button: "!Oh, no¡",
           })
-          .then(this.inicializar.bind(this))
+          .then(() => {
+            window.location.reload();
+            return this.inicializar.bind(this)
+          })
         }
         }
         
